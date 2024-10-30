@@ -30,6 +30,8 @@ flutter:
   assets:
     - assets/backgrounds/
     - assets/rives/
+    - assets/logos/
+    - assets/onboarding/
 
   fonts:
     - family: Montserrat
