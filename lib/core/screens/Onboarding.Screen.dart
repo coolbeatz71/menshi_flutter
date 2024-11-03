@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart' hide Image;
 
+import '../utils/colors.dart';
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -27,11 +29,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
         child: Container(
-          color: Colors.deepPurple.withOpacity(0.75),
+          color: AppColors.primary.withOpacity(0.75),
           child: Stack(
             children: [
               Positioned(
-                width: MediaQuery.of(context).size.width * 1.7,
+                width: MediaQuery.of(context).size.width * 1.5,
                 left: MediaQuery.of(context).size.width * 0.25,
                 top: MediaQuery.of(context).size.width * 0.25,
                 child: Image.asset(
