@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menshy/core/utils/colors.dart';
 
 import 'core/screens/Onboarding.Screen.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Menshy',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: AppColors.primarySwatch,
         fontFamily: "Montserrat",
       ),
       home: const OnboardingScreen(),
