@@ -1,5 +1,5 @@
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
-  image_path: "assets/logos/menshi_light.png"
+  image_path: "assets/logos/icon/menshi_icon_dark.png"
   android: true
   ios: true
