@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'core/utils/colors.dart';
 import 'core/utils/string.dart';
 import 'core/constants/app.dart';
-import 'core/screens/onboarding.screen.dart';
+import 'core/presentation/screens/onboarding/onboarding.screen.dart';
 
 void main() {
   runApp(const MyApp());
