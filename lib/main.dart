@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:menshi/core/utils/colors.dart';
 
-import 'core/constants/app.dart';
+import 'core/utils/Colors.dart';
+import 'core/utils/String.dart';
+import 'core/constants/App.dart';
 import 'core/screens/Onboarding.Screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: APP_NAME,
+      title: APP_NAME.toCapitalized(),
       theme: ThemeData(
         primarySwatch: AppColors.primarySwatch,
         fontFamily: "Montserrat",
