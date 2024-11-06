@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "menshy_flutter" "\0"
+            VALUE "FileDescription", "menshi_flutter" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "menshy_flutter" "\0"
+            VALUE "InternalName", "menshi_flutter" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "menshy_flutter.exe" "\0"
-            VALUE "ProductName", "menshy_flutter" "\0"
+            VALUE "OriginalFilename", "menshi_flutter.exe" "\0"
+            VALUE "ProductName", "menshi_flutter" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
