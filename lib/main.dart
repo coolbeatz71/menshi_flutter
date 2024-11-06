@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:menshy/core/utils/colors.dart';
+import 'package:menshi/core/utils/colors.dart';
 
+import 'core/constants/app.dart';
 import 'core/screens/Onboarding.Screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Menshy',
+      title: APP_NAME,
       theme: ThemeData(
         primarySwatch: AppColors.primarySwatch,
         fontFamily: "Montserrat",
