@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'core/utils/Colors.dart';
-import 'core/utils/String.dart';
-import 'core/constants/App.dart';
-import 'core/screens/Onboarding.Screen.dart';
+import 'core/utils/colors.dart';
+import 'core/utils/string.dart';
+import 'core/constants/app.dart';
+import 'core/screens/onboarding.screen.dart';
 
 void main() {
   runApp(const MyApp());
