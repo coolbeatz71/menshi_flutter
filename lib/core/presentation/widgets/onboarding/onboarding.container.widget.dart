@@ -95,7 +95,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
 
                               // description
                               FadeAnimation(
-                                delay: 0.5,
+                                delay: 0.65,
                                 child: Text(
                                   onboardingContentList[index].description,
                                   textAlign: TextAlign.center,
@@ -103,7 +103,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                       .textTheme
                                       .bodyLarge
                                       ?.copyWith(
-                                        color: textColor.withOpacity(0.75),
+                                        color: textColor.withOpacity(0.65),
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
