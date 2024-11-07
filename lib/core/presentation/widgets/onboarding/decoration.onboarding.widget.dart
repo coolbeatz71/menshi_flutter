@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../entities/onboarding.dart';
+import '../../entities/onboarding/decoration.onboarding.dart';
 
 /// A widget that displays an onboarding decoration
 /// with centered background circles and surrounded randomly position decorative circles.
