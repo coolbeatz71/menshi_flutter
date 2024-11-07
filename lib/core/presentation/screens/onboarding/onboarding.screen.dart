@@ -133,62 +133,88 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             // skip and next buttons
             Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 12.0,
                 vertical: 24.0,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      // Handle skip action
-                    },
-                    child: Text(
-                      'Skip',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: textColor.withOpacity(0.75),
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                  ),
-                  CupertinoButton(
-                    onPressed: () {
-                      if (currentIndex < onboardingContentList.length - 1) {
-                        _controller!.nextPage(
-                          duration: const Duration(milliseconds: 800),
-                          curve: Curves.easeInOut,
-                        );
-                      } else {
+              child: currentIndex == onboardingContentList.length - 1
+                  ? CupertinoButton(
+                      onPressed: () {
                         // Handle finish action
-                      }
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: double.infinity,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: Text(
+                          'Get Started',
+                          style:
+                              Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ),
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
-                          height: 60.0,
-                          width: 60.0,
-                          child: CircularProgressIndicator(
-                            value: percentage,
-                            backgroundColor: AppColors.primary.withOpacity(0.2),
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                              AppColors.primary,
-                            ),
+                        TextButton(
+                          onPressed: () {
+                            // Handle skip action
+                          },
+                          child: Text(
+                            'Skip',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: textColor.withOpacity(0.75),
+                                      fontWeight: FontWeight.w500,
+                                    ),
                           ),
                         ),
-                        CircleAvatar(
-                          backgroundColor: AppColors.primary,
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: onboardingContentList[currentIndex]
-                                .backgroundColor,
+                        CupertinoButton(
+                          onPressed: () {
+                            if (currentIndex <
+                                onboardingContentList.length - 1) {
+                              _controller!.nextPage(
+                                duration: const Duration(milliseconds: 800),
+                                curve: Curves.easeInOut,
+                              );
+                            } else {
+                              // Handle finish action
+                            }
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              SizedBox(
+                                height: 60.0,
+                                width: 60.0,
+                                child: CircularProgressIndicator(
+                                  value: percentage,
+                                  backgroundColor:
+                                      AppColors.primary.withOpacity(0.2),
+                                  valueColor:
+                                      const AlwaysStoppedAnimation<Color>(
+                                    AppColors.primary,
+                                  ),
+                                ),
+                              ),
+                              CircleAvatar(
+                                backgroundColor: AppColors.primary,
+                                child: Icon(
+                                  Icons.arrow_forward,
+                                  color: onboardingContentList[currentIndex]
+                                      .backgroundColor,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
             ),
           ],
         ),
