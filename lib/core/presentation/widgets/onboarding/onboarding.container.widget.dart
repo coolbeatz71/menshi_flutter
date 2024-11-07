@@ -50,36 +50,37 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
         child: Stack(
           children: [
             const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0),
+              padding: EdgeInsets.all(24.0),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: DecorationOnboarding(),
               ),
             ),
-            Column(
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: PageView.builder(
-                    controller: _controller,
-                    onPageChanged: (int index) {
-                      setState(() {
-                        currentIndex = index;
-                        percentage = (index + 1) / onboardingContentList.length;
-                      });
-                    },
-                    itemCount: onboardingContentList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final screenSize = MediaQuery.of(context).size;
-                      final imageWidth = screenSize.width * 0.8;
-                      final imageHeight = screenSize.height * 0.4;
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 5,
+                    child: PageView.builder(
+                      controller: _controller,
+                      onPageChanged: (int index) {
+                        setState(() {
+                          currentIndex = index;
+                          percentage =
+                              (index + 1) / onboardingContentList.length;
+                        });
+                      },
+                      itemCount: onboardingContentList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final screenSize = MediaQuery.of(context).size;
+                        final imageWidth = screenSize.width * 0.8;
+                        final imageHeight = screenSize.height * 0.4;
 
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Wrap(
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Wrap(
                               alignment: WrapAlignment.center,
                               crossAxisAlignment: WrapCrossAlignment.center,
                               runSpacing: 20.0,
@@ -115,53 +116,48 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                     textAlign: TextAlign.center,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyLarge
+                                        .bodyMedium
                                         ?.copyWith(
                                           color: textColor.withOpacity(0.65),
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                   ),
                                 ),
                               ],
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                          ],
+                        );
+                      },
+                    ),
                   ),
-                ),
 
-                // navigation dots
-                SizedBox(
-                  height: 12.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      onboardingContentList.length,
-                      (int index) => AnimatedContainer(
-                        height: 12.0,
-                        width: currentIndex == index ? 24.0 : 12.0,
-                        curve: Curves.easeInOut,
-                        duration: const Duration(milliseconds: 800),
-                        margin: const EdgeInsets.only(right: 4.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: (index == currentIndex)
-                              ? AppColors.backgroundDark
-                              : AppColors.backgroundDark.withOpacity(0.5),
+                  // navigation dots
+                  SizedBox(
+                    height: 24.0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: List.generate(
+                        onboardingContentList.length,
+                        (int index) => AnimatedContainer(
+                          height: 12.0,
+                          width: currentIndex == index ? 24.0 : 12.0,
+                          curve: Curves.easeInOut,
+                          duration: const Duration(milliseconds: 800),
+                          margin: const EdgeInsets.symmetric(horizontal: 2.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: (index == currentIndex)
+                                ? AppColors.backgroundDark
+                                : AppColors.backgroundDark.withOpacity(0.5),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
 
-                // skip and next buttons
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12.0,
-                    horizontal: 24.0,
-                  ),
-                  child: currentIndex == onboardingContentList.length - 1
+                  // skip and next buttons
+                  currentIndex == onboardingContentList.length - 1
                       ? FadeAnimation(
                           reverse: true,
                           child: CupertinoButton(
@@ -174,7 +170,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               height: 60.0,
                               decoration: BoxDecoration(
                                 color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(12.0),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Text(
                                 'Get Started',
@@ -196,6 +192,11 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               onPressed: () {
                                 // Handle skip action
                               },
+                              style: TextButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
                               child: Text(
                                 'Skip',
                                 style: Theme.of(context)
@@ -248,8 +249,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                             ),
                           ],
                         ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
