@@ -71,62 +71,61 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                     itemCount: onboardingContentList.length,
                     itemBuilder: (BuildContext context, int index) {
                       final screenSize = MediaQuery.of(context).size;
-                      final imageWidth = screenSize.width * 0.9;
-                      final imageHeight = screenSize.height * 0.45;
+                      final imageWidth = screenSize.width * 0.8;
+                      final imageHeight = screenSize.height * 0.4;
 
-                      return SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(24.0),
-                              child: Wrap(
-                                alignment: WrapAlignment.center,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                runSpacing: 20.0,
-                                children: [
-                                  // image
-                                  Image.asset(
-                                    onboardingContentList[index].image,
-                                    width: imageWidth,
-                                    height: imageHeight,
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Wrap(
+                              alignment: WrapAlignment.center,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              runSpacing: 20.0,
+                              children: [
+                                // image
+                                Image.asset(
+                                  onboardingContentList[index].image,
+                                  width: imageWidth,
+                                  height: imageHeight,
+                                ),
+                                // title
+                                FadeAnimation(
+                                  delay: 1.0,
+                                  reverse: true,
+                                  child: Text(
+                                    onboardingContentList[index].title,
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall
+                                        ?.copyWith(
+                                          color: textColor,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                   ),
-                                  // title
-                                  FadeAnimation(
-                                    delay: 1.0,
-                                    reverse: true,
-                                    child: Text(
-                                      onboardingContentList[index].title,
-                                      textAlign: TextAlign.center,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineSmall
-                                          ?.copyWith(
-                                            color: textColor,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                    ),
-                                  ),
+                                ),
 
-                                  // description
-                                  FadeAnimation(
-                                    delay: 0.65,
-                                    child: Text(
-                                      onboardingContentList[index].description,
-                                      textAlign: TextAlign.center,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge
-                                          ?.copyWith(
-                                            color: textColor.withOpacity(0.65),
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
+                                // description
+                                FadeAnimation(
+                                  delay: 0.65,
+                                  child: Text(
+                                    onboardingContentList[index].description,
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge
+                                        ?.copyWith(
+                                          color: textColor.withOpacity(0.65),
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       );
                     },
                   ),
@@ -213,7 +212,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                 if (currentIndex <
                                     onboardingContentList.length - 1) {
                                   _controller!.nextPage(
-                                    duration: const Duration(milliseconds: 800),
+                                    duration: const Duration(milliseconds: 200),
                                     curve: Curves.easeInOut,
                                   );
                                 } else {
