@@ -18,7 +18,7 @@ class OnboardingContent {
 }
 
 // created onboarding list
-List<OnboardingContent> onboardingList = [
+List<OnboardingContent> onboardingContentList = [
   OnboardingContent(
     image: "assets/onboarding/welcome.png",
     title: "Welcome to ${APP_NAME.toCapitalized()}",
@@ -34,7 +34,7 @@ are coming soon!
     image: "assets/onboarding/delivery_motorbike.png",
     title: "Quick Delivery for Small Packages",
     description: '''
-Need to send something small across town, fast? Our motorbike delivery is
+Need to send a small item across town, fast? Our motorbike delivery is
 perfect for documents, clothes, food, and other small packages. Reliable, quick,
 and handled with care.
 ''',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../entities/onboarding/decoration.onboarding.dart';
+import '../../entities/onboarding/onboarding.decoration.dart';
 
 /// A widget that displays an onboarding decoration
 /// with centered background circles and surrounded randomly position decorative circles.
@@ -20,25 +20,25 @@ class DecorationOnboarding extends StatelessWidget {
 
     // center circles
     this.externalBackgroundCircle =
-        const BackgroundCircle(size: 300.0, color: Color(0xFFE0BBE4)),
+        const BackgroundCircle(size: 400.0, color: Color(0x50E0BBE4)),
     this.internalBackgroundCircle =
-        const BackgroundCircle(size: 200.0, color: Color(0xFFD291BC)),
+        const BackgroundCircle(size: 300.0, color: Color(0x50D291BC)),
 
     // additional decorative circles and dots
     this.decorativeCircles = const [
       DecorationCircle(
-        size: 30.0,
-        color: Color(0xFF6A1B9A),
-        position: Offset(20, 20),
+        size: 50.0,
+        color: Color(0x806A1B9A),
+        position: Offset(0, 0),
       ),
       DecorationCircle(
         size: 10.0,
-        color: Color(0xFF6A1B9A),
+        color: Color(0x506A1B9A),
         position: Offset(60, 50),
       ),
       DecorationCircle(
         size: 20.0,
-        color: Color(0xFFE57373),
+        color: Color(0x50E57373),
         position: Offset(-20, -20),
       ),
     ],

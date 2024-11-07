@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: APP_NAME.toCapitalized(),
       theme: ThemeData(
-        primarySwatch: AppColors.primarySwatch,
         fontFamily: "Montserrat",
+        primarySwatch: AppColors.primarySwatch,
       ),
       home: const OnboardingScreen(),
     );
