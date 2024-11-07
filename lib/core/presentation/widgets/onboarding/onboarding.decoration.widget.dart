@@ -20,9 +20,9 @@ class DecorationOnboarding extends StatelessWidget {
 
     // center circles
     this.externalBackgroundCircle =
-        const BackgroundCircle(size: 400.0, color: Color(0x50E0BBE4)),
+        const BackgroundCircle(size: 400.0, color: Color(0x70E0BBE4)),
     this.internalBackgroundCircle =
-        const BackgroundCircle(size: 300.0, color: Color(0x50D291BC)),
+        const BackgroundCircle(size: 300.0, color: Color(0x70D291BC)),
 
     // additional decorative circles and dots
     this.decorativeCircles = const [
@@ -33,12 +33,12 @@ class DecorationOnboarding extends StatelessWidget {
       ),
       DecorationCircle(
         size: 10.0,
-        color: Color(0x506A1B9A),
+        color: Color(0x706A1B9A),
         position: Offset(60, 50),
       ),
       DecorationCircle(
         size: 20.0,
-        color: Color(0x50E57373),
+        color: Color(0x70E57373),
         position: Offset(-20, -20),
       ),
     ],
