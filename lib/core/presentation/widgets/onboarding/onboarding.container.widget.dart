@@ -22,14 +22,23 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
 
   @override
   void initState() {
-    _controller = PageController(initialPage: 0);
     super.initState();
+    _controller = PageController();
+    _controller!.addListener(_onPageChanged);
   }
 
   @override
   void dispose() {
-    _controller?.dispose();
+    _controller!.removeListener(_onPageChanged);
+    _controller!.dispose();
     super.dispose();
+  }
+
+  void _onPageChanged() {
+    setState(() {
+      currentIndex = _controller!.page!.round();
+      percentage = (currentIndex + 1) / onboardingContentList.length;
+    });
   }
 
   @override
@@ -44,15 +53,13 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
               flex: 5,
               child: PageView.builder(
                 controller: _controller,
-                itemCount: onboardingContentList.length,
                 onPageChanged: (int index) {
                   setState(() {
                     currentIndex = index;
-                    percentage += (index >= currentIndex)
-                        ? ONBOARDING_PERCENTAGE_INCREMENT
-                        : -ONBOARDING_PERCENTAGE_INCREMENT;
+                    percentage = (index + 1) / onboardingContentList.length;
                   });
                 },
+                itemCount: onboardingContentList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return SingleChildScrollView(
                     child: Column(
