@@ -5,6 +5,7 @@ import 'package:menshi/core/utils/colors.dart';
 import '../../../constants/app.dart';
 import '../../entities/onboarding/onboarding.dart';
 import '../../widgets/onboarding/onboarding.decoration.widget.dart';
+import '../shared/animations/fade.animation.dart';
 
 class OnboardingContainer extends StatefulWidget {
   const OnboardingContainer({super.key});
@@ -16,8 +17,8 @@ class OnboardingContainer extends StatefulWidget {
 class _OnboardingContainerState extends State<OnboardingContainer> {
   int currentIndex = 0;
   PageController? _controller;
-  double percentage = ONBOARDING_PERCENTAGE_INCREMENT;
   Color textColor = AppColors.backgroundDark;
+  double percentage = ONBOARDING_PERCENTAGE_INCREMENT;
 
   @override
   void initState() {
@@ -86,16 +87,19 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               ),
 
                               // description
-                              Text(
-                                onboardingContentList[index].description,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      color: textColor.withOpacity(0.75),
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                              FadeAnimation(
+                                delay: 0.5,
+                                child: Text(
+                                  onboardingContentList[index].description,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(
+                                        color: textColor.withOpacity(0.75),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
                               ),
                             ],
                           ),
@@ -138,25 +142,28 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                 horizontal: 24.0,
               ),
               child: currentIndex == onboardingContentList.length - 1
-                  ? CupertinoButton(
-                      onPressed: () {
-                        // Handle finish action
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: double.infinity,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: Text(
-                          'Get Started',
-                          style:
-                              Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                  ? FadeAnimation(
+                      reverse: true,
+                      child: CupertinoButton(
+                        onPressed: () {
+                          // Handle finish action
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: Text(
+                            'Get Started',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                          ),
                         ),
                       ),
                     )
