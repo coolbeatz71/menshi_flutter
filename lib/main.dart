@@ -6,7 +6,6 @@ import 'core/constants/app.dart';
 import 'core/presentation/screens/onboarding/onboarding.screen.dart';
 
 void main() {
-  // TODO: make sure the splash get removed only if the onboarding images are loaded
   runApp(const MyApp());
 }
 
