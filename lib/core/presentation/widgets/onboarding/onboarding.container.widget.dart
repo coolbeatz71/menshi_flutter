@@ -90,6 +90,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                   onboardingContentList[index].image,
                                   width: imageWidth,
                                   height: imageHeight,
+                                  fit: BoxFit.fill,
                                 ),
                                 // title
                                 FadeAnimation(
@@ -188,15 +189,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(
+                            CupertinoButton(
                               onPressed: () {
                                 // Handle skip action
                               },
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
                               child: Text(
                                 'Skip',
                                 style: Theme.of(context)

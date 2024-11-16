@@ -7,6 +7,7 @@ class OnboardingContent {
   String image;
   String title;
   String description;
+  // TODO: remove the backgroundColor property: just use a white/black with opacity
   Color backgroundColor;
 
   OnboardingContent({
