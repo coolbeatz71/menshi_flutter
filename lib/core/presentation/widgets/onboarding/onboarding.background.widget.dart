@@ -29,7 +29,7 @@ class _OnboardingBackgroundState extends State<OnboardingBackground> {
           ),
         ),
         child: Container(
-          color: AppColors.primary.withOpacity(0.75),
+          color: AppColors.primary.withOpacity(0.35),
           child: Stack(
             children: [
               Positioned(

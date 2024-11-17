@@ -44,8 +44,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          onboardingContentList[currentIndex].backgroundColor.withOpacity(0.75),
+      backgroundColor: Colors.white.withOpacity(0.75),
       body: SafeArea(
         child: Stack(
           children: [
@@ -74,10 +73,11 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       itemCount: onboardingContentList.length,
                       itemBuilder: (BuildContext context, int index) {
                         precacheImage(
-                            AssetImage(
-                              onboardingContentList[index].image,
-                            ),
-                            context);
+                          AssetImage(
+                            onboardingContentList[index].image,
+                          ),
+                          context,
+                        );
 
                         final screenSize = MediaQuery.of(context).size;
                         final imageWidth = screenSize.width * 0.8;
@@ -194,15 +194,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(
+                            CupertinoButton(
                               onPressed: () {
                                 // Handle skip action
                               },
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
                               child: Text(
                                 'Skip',
                                 style: Theme.of(context)
@@ -242,12 +237,11 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                       ),
                                     ),
                                   ),
-                                  CircleAvatar(
+                                  const CircleAvatar(
                                     backgroundColor: AppColors.primary,
                                     child: Icon(
                                       Icons.arrow_forward,
-                                      color: onboardingContentList[currentIndex]
-                                          .backgroundColor,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ],
