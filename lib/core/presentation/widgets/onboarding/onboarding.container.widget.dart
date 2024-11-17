@@ -56,7 +56,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 12.0,
+              ),
               child: Column(
                 children: [
                   Expanded(
@@ -167,6 +170,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       ? FadeAnimation(
                           reverse: true,
                           child: CupertinoButton(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 0,
+                              vertical: 12.0,
+                            ),
                             onPressed: () {
                               // Handle finish action
                             },
@@ -195,6 +202,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CupertinoButton(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 0,
+                                vertical: 12.0,
+                              ),
                               onPressed: () {
                                 // Handle skip action
                               },
@@ -210,6 +221,10 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               ),
                             ),
                             CupertinoButton(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 0,
+                                vertical: 12.0,
+                              ),
                               onPressed: () {
                                 if (currentIndex <
                                     onboardingContentList.length - 1) {

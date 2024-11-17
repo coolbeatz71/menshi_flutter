@@ -22,35 +22,27 @@ class _OnboardingBackgroundState extends State<OnboardingBackground> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/backgrounds/background.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Container(
-          color: AppColors.primary.withOpacity(0.35),
-          child: Stack(
-            children: [
-              Positioned(
-                width: MediaQuery.of(context).size.width * 1.5,
-                left: MediaQuery.of(context).size.width * 0.25,
-                top: MediaQuery.of(context).size.width * 0.25,
-                child: Image.asset(
-                  "assets/backgrounds/spline.png",
-                ),
+        color: AppColors.primary.withOpacity(0.45),
+        child: Stack(
+          children: [
+            Positioned(
+              width: MediaQuery.of(context).size.width * 1.5,
+              left: MediaQuery.of(context).size.width * 0.25,
+              top: MediaQuery.of(context).size.width * 0.25,
+              child: Image.asset(
+                "assets/backgrounds/spline.png",
               ),
-              const RiveAnimation.asset(
-                "assets/rives/shapes.riv",
+            ),
+            const RiveAnimation.asset(
+              "assets/rives/shapes.riv",
+            ),
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 48, sigmaY: 48),
+                child: const SizedBox(),
               ),
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 48, sigmaY: 48),
-                  child: const SizedBox(),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
