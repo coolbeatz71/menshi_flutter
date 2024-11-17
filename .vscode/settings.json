@@ -3,6 +3,8 @@
     "cupertino",
     "hexcode",
     "Menshi",
-    "RGBO"
+    "precache",
+    "RGBO",
+    "vsync"
   ]
 }
