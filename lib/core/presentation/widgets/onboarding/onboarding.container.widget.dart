@@ -88,10 +88,11 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
 
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Wrap(
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.center,
+                              spacing: 20.0,
                               runSpacing: 20.0,
                               children: [
                                 // image
