@@ -32,15 +32,22 @@ class _SignInFormState extends State<SignInForm> {
           ),
         ),
         const FormAuthTitle(text: "Login to Continue"),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 12.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Wrap(
             spacing: 12.0,
             runSpacing: 12.0,
             alignment: WrapAlignment.center,
             children: [
-              AppTextField(label: "Telephone", filled: true),
-              AppTextField(label: "Password", filled: true, isPassword: true),
+              const AppTextField(label: "Telephone", filled: true),
+              const AppTextField(label: "Password", filled: true, isPassword: true),
+              AuthRedirectButton(
+                isCentered: false,
+                authContext: AuthRedirectContext.FORGOT_PASSWORD,
+                onPressed: () {
+                  // navigate to forgot password screen
+                },
+              ),
             ],
           ),
         ),
