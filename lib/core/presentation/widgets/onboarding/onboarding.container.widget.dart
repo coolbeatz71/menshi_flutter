@@ -7,6 +7,7 @@ import '../../entities/onboarding/onboarding.dart';
 import '../../screens/auth/signup/auth.signup.screen.dart';
 import '../../widgets/onboarding/onboarding.decoration.widget.dart';
 import '../shared/animations/fade.animation.dart';
+import '../shared/animations/fade.route.transition.dart';
 import '../shared/buttons/solid.button.dart';
 
 class OnboardingContainer extends StatefulWidget {
@@ -170,8 +171,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(
-                                  builder: (context) => const AuthSignUpScreen(),
+                                FadeRouteTransition(
+                                  screen: const AuthSignUpScreen(),
                                 ),
                               );
                             },
@@ -188,8 +189,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const AuthSignUpScreen(),
+                                  FadeRouteTransition(
+                                    screen: const AuthSignUpScreen(),
                                   ),
                                 );
                               },
