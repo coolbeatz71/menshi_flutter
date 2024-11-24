@@ -7,6 +7,7 @@ import '../../entities/onboarding/onboarding.dart';
 import '../../screens/auth/signup/auth.signup.screen.dart';
 import '../../widgets/onboarding/onboarding.decoration.widget.dart';
 import '../shared/animations/fade.animation.dart';
+import '../shared/buttons/solid.button.dart';
 
 class OnboardingContainer extends StatefulWidget {
   const OnboardingContainer({super.key});
@@ -164,11 +165,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                   currentIndex == onboardingContentList.length - 1
                       ? FadeAnimation(
                           reverse: true,
-                          child: CupertinoButton(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 12.0,
-                            ),
+                          child: SolidButton(
+                            text: "Get Started",
                             onPressed: () {
                               Navigator.push(
                                 context,
@@ -177,22 +175,6 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                 ),
                               );
                             },
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: double.infinity,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Text(
-                                'Get Started',
-                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ),
                           ),
                         )
                       : Row(

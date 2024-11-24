@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/modal/signup.modal.widget.dart';
+import '../../../widgets/modals/signup.modal.widget.dart';
 import '../../../widgets/onboarding/onboarding.background.widget.dart';
 
 class AuthSignUpScreen extends StatefulWidget {
