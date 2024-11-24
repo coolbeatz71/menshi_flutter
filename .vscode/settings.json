@@ -1,10 +1,20 @@
 {
   "cSpell.words": [
+    "Bezier",
     "cupertino",
     "hexcode",
     "Menshi",
     "precache",
     "RGBO",
+    "signup",
+    "termscondition",
+    "textfields",
     "vsync"
-  ]
+  ],
+  "dart.lineLength": 120,
+  "[dart]": {
+    "editor.rulers": [
+      120
+    ],
+  }
 }

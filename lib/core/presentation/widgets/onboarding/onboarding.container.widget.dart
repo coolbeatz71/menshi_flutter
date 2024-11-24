@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:menshi/core/utils/colors.dart';
 
+import '../../../utils/colors.dart';
 import '../../../constants/app.dart';
 import '../../entities/onboarding/onboarding.dart';
+import '../../screens/auth/signup/auth.signup.screen.dart';
 import '../../widgets/onboarding/onboarding.decoration.widget.dart';
 import '../shared/animations/fade.animation.dart';
+import '../shared/buttons/solid.button.dart';
 
 class OnboardingContainer extends StatefulWidget {
   const OnboardingContainer({super.key});
@@ -69,8 +71,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       onPageChanged: (int index) {
                         setState(() {
                           currentIndex = index;
-                          percentage =
-                              (index + 1) / onboardingContentList.length;
+                          percentage = (index + 1) / onboardingContentList.length;
                         });
                       },
                       itemCount: onboardingContentList.length,
@@ -88,10 +89,11 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
 
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Wrap(
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.center,
+                              spacing: 20.0,
                               runSpacing: 20.0,
                               children: [
                                 // image
@@ -107,10 +109,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                   child: Text(
                                     onboardingContentList[index].title,
                                     textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall
-                                        ?.copyWith(
+                                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                                           color: textColor,
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -123,10 +122,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                   child: Text(
                                     onboardingContentList[index].description,
                                     textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                           color: textColor.withOpacity(0.65),
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -169,33 +165,16 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                   currentIndex == onboardingContentList.length - 1
                       ? FadeAnimation(
                           reverse: true,
-                          child: CupertinoButton(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 0,
-                              vertical: 12.0,
-                            ),
+                          child: SolidButton(
+                            text: "Get Started",
                             onPressed: () {
-                              // Handle finish action
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AuthSignUpScreen(),
+                                ),
+                              );
                             },
-                            child: Container(
-                              alignment: Alignment.center,
-                              width: double.infinity,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: Text(
-                                'Get Started',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ),
                           ),
                         )
                       : Row(
@@ -207,14 +186,16 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                 vertical: 12.0,
                               ),
                               onPressed: () {
-                                // Handle skip action
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AuthSignUpScreen(),
+                                  ),
+                                );
                               },
                               child: Text(
                                 'Skip',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge
-                                    ?.copyWith(
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                       color: textColor.withOpacity(0.75),
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -226,8 +207,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                 vertical: 12.0,
                               ),
                               onPressed: () {
-                                if (currentIndex <
-                                    onboardingContentList.length - 1) {
+                                if (currentIndex < onboardingContentList.length - 1) {
                                   _controller!.nextPage(
                                     duration: const Duration(milliseconds: 200),
                                     curve: Curves.easeInOut,
@@ -244,10 +224,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                     width: 60.0,
                                     child: CircularProgressIndicator(
                                       value: percentage,
-                                      backgroundColor:
-                                          AppColors.primary.withOpacity(0.2),
-                                      valueColor:
-                                          const AlwaysStoppedAnimation<Color>(
+                                      backgroundColor: AppColors.primary.withOpacity(0.2),
+                                      valueColor: const AlwaysStoppedAnimation<Color>(
                                         AppColors.primary,
                                       ),
                                     ),

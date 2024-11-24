@@ -20,10 +20,8 @@ class AppColors {
   static MaterialColor get errorSwatch => _createMaterialColor(error);
   static MaterialColor get warningSwatch => _createMaterialColor(warning);
   static MaterialColor get successSwatch => _createMaterialColor(success);
-  static MaterialColor get backgroundLightSwatch =>
-      _createMaterialColor(backgroundLight);
-  static MaterialColor get backgroundDarkSwatch =>
-      _createMaterialColor(backgroundDark);
+  static MaterialColor get backgroundLightSwatch => _createMaterialColor(backgroundLight);
+  static MaterialColor get backgroundDarkSwatch => _createMaterialColor(backgroundDark);
 
   /// Creates a MaterialColor swatch from a given [color].
   ///
