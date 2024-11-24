@@ -8,9 +8,11 @@ enum AuthRedirectContext {
   DONT_HAVE_ACCOUNT,
   HAVE_RECEIVE_CODE,
   BACK_TO_SIGNIN,
+  FORGOT_PASSWORD,
 }
 
 class AuthRedirectButton extends StatelessWidget {
+  final bool isCentered;
   final VoidCallback onPressed;
   final AuthRedirectContext authContext;
 
@@ -18,12 +20,13 @@ class AuthRedirectButton extends StatelessWidget {
     super.key,
     required this.authContext,
     required this.onPressed,
+    this.isCentered = true,
   });
 
   @override
   Widget build(BuildContext context) {
     String mainText;
-    String linkText;
+    String? linkText;
 
     switch (authContext) {
       case AuthRedirectContext.HAVE_ACCOUNT:
@@ -42,26 +45,34 @@ class AuthRedirectButton extends StatelessWidget {
         mainText = "Want to go back? ";
         linkText = "Sign In";
         break;
+      case AuthRedirectContext.FORGOT_PASSWORD:
+        mainText = "Forgot your password?";
+        linkText = null;
+        break;
     }
 
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: onPressed,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: isCentered ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
           Text(
             mainText,
-            style: Theme.of(context).textTheme.titleMedium,
+            style: authContext == AuthRedirectContext.FORGOT_PASSWORD
+                ? Theme.of(context).textTheme.titleSmall
+                : Theme.of(context).textTheme.titleMedium,
           ),
-          Text(
-            linkText,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                ),
-          ),
+          linkText != null
+              ? Text(
+                  linkText,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: AppColors.primary,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );

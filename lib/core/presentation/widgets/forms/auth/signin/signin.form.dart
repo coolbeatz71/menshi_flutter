@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:menshi/core/extensions/darkmode.extension.dart';
 
-import '../../../../../extensions/darkmode.extension.dart';
-import '../../../../screens/auth/signin/auth.signin.screen.dart';
+import '../../../../screens/auth/signup/auth.signup.screen.dart';
 import '../../../shared/animations/fade.animation.dart';
 import '../../../shared/animations/fade.route.transition.dart';
 import '../../../shared/buttons/solid.button.dart';
@@ -12,15 +11,14 @@ import '../../../shared/textfields/textfield.widget.dart';
 import '../auth.title.widget.dart';
 import '../redirect/auth.redirect.button.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+class SignInForm extends StatefulWidget {
+  const SignInForm({super.key});
 
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  State<SignInForm> createState() => _SignInFormState();
 }
 
-/// TODO: this signup form should be a multi-step form like the facebook one
-class _SignUpFormState extends State<SignUpForm> {
+class _SignInFormState extends State<SignInForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,19 +31,23 @@ class _SignUpFormState extends State<SignUpForm> {
             isDarkTheme: context.isDarkMode,
           ),
         ),
-        const FormAuthTitle(text: "Register to Join"),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 12.0),
+        const FormAuthTitle(text: "Login to Continue"),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Wrap(
             spacing: 12.0,
             runSpacing: 12.0,
             alignment: WrapAlignment.center,
             children: [
-              AppTextField(label: "First Name", filled: true),
-              AppTextField(label: "Last Name", filled: true),
-              AppTextField(label: "Telephone", filled: true),
-              AppTextField(label: "Password", filled: true, isPassword: true),
-              // AppTextField(label: "Confirm Password", filled: true, isPassword: true),
+              const AppTextField(label: "Telephone", filled: true),
+              const AppTextField(label: "Password", filled: true, isPassword: true),
+              AuthRedirectButton(
+                isCentered: false,
+                authContext: AuthRedirectContext.FORGOT_PASSWORD,
+                onPressed: () {
+                  // navigate to forgot password screen
+                },
+              ),
             ],
           ),
         ),
@@ -56,19 +58,19 @@ class _SignUpFormState extends State<SignUpForm> {
         FadeAnimation(
           delay: 0.65,
           child: SolidButton(
-            text: "Sign Up",
+            text: "Sign In",
             onPressed: () {
               //
             },
           ),
         ),
         AuthRedirectButton(
-          authContext: AuthRedirectContext.HAVE_ACCOUNT,
+          authContext: AuthRedirectContext.DONT_HAVE_ACCOUNT,
           onPressed: () {
             Navigator.push(
               context,
               FadeRouteTransition(
-                screen: const AuthSignInScreen(),
+                screen: const AuthSignUpScreen(),
               ),
             );
           },
