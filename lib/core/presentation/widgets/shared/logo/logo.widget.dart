@@ -39,7 +39,7 @@ class Logo extends StatelessWidget {
 
     return SvgPicture.asset(
       svgAssetPath,
-      width: width ?? MediaQuery.of(context).size.width * 0.25,
+      width: width ?? MediaQuery.of(context).size.width * 0.2,
       height: height,
       semanticsLabel: '$logoContext logo',
     );
