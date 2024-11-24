@@ -6,6 +6,13 @@
     "Menshi",
     "precache",
     "RGBO",
+    "signup",
     "vsync"
-  ]
+  ],
+  "dart.lineLength": 120,
+  "[dart]": {
+    "editor.rulers": [
+      120
+    ],
+  }
 }
