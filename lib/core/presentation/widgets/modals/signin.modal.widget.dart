@@ -20,7 +20,7 @@ class _SignInModalState extends State<SignInModal> {
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.85,
+            height: MediaQuery.of(context).size.height * 0.75,
             padding: const EdgeInsets.all(24.0),
             margin: const EdgeInsets.symmetric(horizontal: 12.0),
             decoration: BoxDecoration(
