@@ -11,7 +11,7 @@ class AnimateBorder extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
 
-    paint.strokeWidth = 2;
+    paint.strokeWidth = 4;
     paint.color = AppColors.primary;
     paint.style = PaintingStyle.stroke;
 
@@ -30,14 +30,11 @@ class AnimateBorder extends CustomPainter {
     pathTwo.lineTo(0, size.height - 8);
     pathTwo.quadraticBezierTo(0, size.height, 8, size.height);
     pathTwo.lineTo(size.width - 8, size.height);
-    pathTwo.quadraticBezierTo(
-        size.width, size.height, size.width, size.height - 8);
+    pathTwo.quadraticBezierTo(size.width, size.height, size.width, size.height - 8);
     pathTwo.lineTo(size.width, size.height / 2);
 
-    final animatedPathOne =
-        BorderDraw.createAnimatedPath(pathOne, animationPercent);
-    final animatedPathTwo =
-        BorderDraw.createAnimatedPath(pathTwo, animationPercent);
+    final animatedPathOne = BorderDraw.createAnimatedPath(pathOne, animationPercent);
+    final animatedPathTwo = BorderDraw.createAnimatedPath(pathTwo, animationPercent);
 
     canvas.drawPath(animatedPathOne, paint);
     canvas.drawPath(animatedPathTwo, paint);
