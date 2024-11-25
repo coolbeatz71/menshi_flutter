@@ -11,8 +11,8 @@ class AnimateBorder extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
 
-    paint.strokeWidth = 4;
-    paint.color = AppColors.primary;
+    paint.strokeWidth = 5;
+    paint.color = AppColors.primary.withOpacity(0.65);
     paint.style = PaintingStyle.stroke;
 
     Path pathOne = Path();

@@ -16,7 +16,7 @@ class AppTextField extends StatefulWidget {
     required this.label,
     this.suffix,
     this.filled = false,
-    this.filledColor = Colors.white,
+    this.filledColor = Colors.white70,
     this.isPassword = false,
   });
 
@@ -84,15 +84,25 @@ class _AppTextFieldState extends State<AppTextField> with SingleTickerProviderSt
               autocorrect: !widget.isPassword,
               enableSuggestions: !widget.isPassword,
               obscureText: widget.isPassword && !_isPasswordVisible,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
               decoration: InputDecoration(
-                label: Text(widget.label),
                 border: InputBorder.none,
                 filled: widget.filled,
-                fillColor: widget.filled ? widget.filledColor : null,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 12.0,
+                label: Text(
+                  widget.label,
+                  style: const TextStyle(height: 0),
                 ),
+                fillColor: widget.filled ? widget.filledColor : null,
+                labelStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                floatingLabelStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w500,
+                    ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
                 suffixIcon: widget.isPassword
                     ? VisibleIconButton(
                         isPasswordVisible: _isPasswordVisible,

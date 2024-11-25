@@ -19,10 +19,8 @@ class DecorationOnboarding extends StatelessWidget {
     super.key,
 
     // center circles
-    this.externalBackgroundCircle =
-        const BackgroundCircle(size: 350.0, color: Color(0x70E0BBE4)),
-    this.internalBackgroundCircle =
-        const BackgroundCircle(size: 250.0, color: Color(0x70D291BC)),
+    this.externalBackgroundCircle = const BackgroundCircle(size: 320.0, color: Color(0x70E0BBE4)),
+    this.internalBackgroundCircle = const BackgroundCircle(size: 220.0, color: Color(0x70D291BC)),
 
     // additional decorative circles and dots
     this.decorativeCircles = const [

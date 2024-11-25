@@ -25,6 +25,7 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
           padding: const EdgeInsets.all(12.0),
@@ -56,6 +57,7 @@ class _SignUpFormState extends State<SignUpForm> {
         FadeAnimation(
           delay: 0.65,
           child: SolidButton(
+            size: "sm",
             text: "Sign Up",
             onPressed: () {
               //

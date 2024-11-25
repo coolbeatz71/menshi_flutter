@@ -19,7 +19,7 @@ class _AuthSignInScreenState extends State<AuthSignInScreen> {
         await showGeneralDialog<Widget>(
           context: context,
           barrierDismissible: false,
-          transitionDuration: const Duration(milliseconds: 400),
+          transitionDuration: const Duration(milliseconds: 500),
           transitionBuilder: (context, animation, secondaryAnimation, child) {
             Tween<Offset> tween = Tween(begin: const Offset(0, 1), end: Offset.zero);
             return SlideTransition(

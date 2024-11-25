@@ -85,8 +85,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                         );
 
                         final screenSize = MediaQuery.of(context).size;
-                        final imageWidth = screenSize.width * 0.8;
-                        final imageHeight = screenSize.height * 0.4;
+                        final imageWidth = screenSize.width * 0.65;
+                        final imageHeight = screenSize.height * 0.45;
 
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +110,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                   child: Text(
                                     onboardingContentList[index].title,
                                     textAlign: TextAlign.center,
-                                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                                           color: textColor,
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -139,15 +139,15 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
 
                   // navigation dots
                   SizedBox(
-                    height: 24.0,
+                    height: 18.0,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: List.generate(
                         onboardingContentList.length,
                         (int index) => AnimatedContainer(
-                          height: 12.0,
-                          width: currentIndex == index ? 24.0 : 12.0,
+                          height: 9.0,
+                          width: currentIndex == index ? 18.0 : 9.0,
                           curve: Curves.easeInOut,
                           duration: const Duration(milliseconds: 800),
                           margin: const EdgeInsets.symmetric(horizontal: 2.0),
@@ -167,6 +167,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                       ? FadeAnimation(
                           reverse: true,
                           child: SolidButton(
+                            size: "sm",
                             text: "Get Started",
                             onPressed: () {
                               Navigator.push(
@@ -196,7 +197,7 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                               },
                               child: Text(
                                 'Skip',
-                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                       color: textColor.withOpacity(0.75),
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -221,8 +222,8 @@ class _OnboardingContainerState extends State<OnboardingContainer> {
                                 alignment: Alignment.center,
                                 children: [
                                   SizedBox(
-                                    height: 60.0,
-                                    width: 60.0,
+                                    height: 50.0,
+                                    width: 50.0,
                                     child: CircularProgressIndicator(
                                       value: percentage,
                                       backgroundColor: AppColors.primary.withOpacity(0.2),
