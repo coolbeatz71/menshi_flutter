@@ -46,6 +46,7 @@ class TermsAndConditions extends StatelessWidget {
                       color: AppColors.primary,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
+                      decorationColor: AppColors.primary,
                     ),
               ),
             ),
