@@ -59,11 +59,9 @@ class AuthRedirectButton extends StatelessWidget {
         children: [
           Text(
             mainText,
-            style: authContext == AuthRedirectContext.FORGOT_PASSWORD
-                ? Theme.of(context).textTheme.titleSmall
-                : Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
           ),
           linkText != null
               ? Text(
@@ -72,6 +70,7 @@ class AuthRedirectButton extends StatelessWidget {
                         color: AppColors.primary,
                         fontWeight: FontWeight.w800,
                         decoration: TextDecoration.underline,
+                        decorationColor: AppColors.primary,
                       ),
                 )
               : const SizedBox.shrink(),
