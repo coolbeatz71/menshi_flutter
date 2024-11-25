@@ -58,6 +58,7 @@ class _SignInFormState extends State<SignInForm> {
         FadeAnimation(
           delay: 0.65,
           child: SolidButton(
+            size: "sm",
             text: "Sign In",
             onPressed: () {
               //

@@ -56,6 +56,7 @@ class _SignUpFormState extends State<SignUpForm> {
         FadeAnimation(
           delay: 0.65,
           child: SolidButton(
+            size: "sm",
             text: "Sign Up",
             onPressed: () {
               //

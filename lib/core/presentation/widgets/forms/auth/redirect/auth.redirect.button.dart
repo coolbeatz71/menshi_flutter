@@ -61,14 +61,16 @@ class AuthRedirectButton extends StatelessWidget {
             mainText,
             style: authContext == AuthRedirectContext.FORGOT_PASSWORD
                 ? Theme.of(context).textTheme.titleSmall
-                : Theme.of(context).textTheme.titleMedium,
+                : Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
           ),
           linkText != null
               ? Text(
                   linkText,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: AppColors.primary,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w800,
                         decoration: TextDecoration.underline,
                       ),
                 )
