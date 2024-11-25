@@ -15,21 +15,25 @@ class _SignInModalState extends State<SignInModal> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Align(
           alignment: Alignment.bottomCenter,
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.85,
-            padding: const EdgeInsets.all(24.0),
-            margin: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              color: AppColors.backgroundLight.withOpacity(0.5),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(24.0),
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.8,
+              padding: const EdgeInsets.all(24.0),
+              margin: const EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                color: AppColors.backgroundLight.withOpacity(0.5),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(24.0),
+                ),
+              ),
+              child: const Center(
+                child: SignInForm(),
               ),
             ),
-            child: const SignInForm(),
           ),
         ),
       ),
